@@ -1,0 +1,38 @@
+spring:
+ application:
+  name: "microservices"
+ profiles:
+    active: git
+    #- native
+ 
+ cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/kradharedy/microservicesample.git"
+          username: "kradharedy"
+          password: "Wef@#1408"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+          #searchPaths: "config"
+        #native:
+          #search-locations: "classpath:/config"
+          #search-locations: "file:////C://Users//Public//Documents"
+
+ rabbitmq:
+   host: "localhost"
+   port: 5672
+   username: "guest"
+   password: "guest"
+
+server:
+ port: 8071
+ 
+ 
+management:
+   endpoints:
+     web:
+      exposure:
+       include: "*"
